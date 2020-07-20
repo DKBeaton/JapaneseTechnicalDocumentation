@@ -84,7 +84,7 @@ aside {
   position: fixed;
   left: -310px;
   transition: all 0.3s ease-in-out;
-  z-index: 3;
+  z-index: 2;
   overflow: auto;
 }
 
@@ -105,6 +105,8 @@ aside.open {
 nav {
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 4;
 }
 
 .nav-list {
@@ -143,7 +145,7 @@ nav {
   left: 0;
   background-color: var(--bg-color);
   opacity: 0.5;
-  z-index: 1;
+  z-index: 10;
   cursor: pointer;
   padding: 1rem 1rem 1rem 1rem;
   border-bottom-right-radius: 20%;
@@ -168,6 +170,24 @@ nav {
 
 .menu-toggle.open:hover {
   opacity: 0.5;
+}
+
+.overlay {
+  pointer-events: none;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.9);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.overlay.open {
+  pointer-events: all;
+  opacity: 1;
 }
 
 /* Main */
@@ -246,6 +266,10 @@ footer {
 
   .menu-toggle {
     opacity: 0;
+    display: none;
+  }
+
+  .overlay {
     display: none;
   }
 

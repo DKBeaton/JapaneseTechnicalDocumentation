@@ -3,12 +3,19 @@ const menuToggle = document.querySelector('.menu-toggle');
 const aside = document.querySelector('aside');
 const sections = document.querySelectorAll('.main-section');
 const navigationLinks = document.querySelectorAll('.nav-item a');
+const overlay = document.querySelector('.overlay');
 
 // Event listeners
 // Toggle open class to navigation
 menuToggle.addEventListener('click', function () {
   aside.classList.toggle('open');
   menuToggle.classList.toggle('open');
+  overlay.classList.toggle('open');
+});
+
+// Toggle open class to navigation
+overlay.addEventListener('click', function () {
+  menuToggle.click();
 });
 
 // Navigation click event
